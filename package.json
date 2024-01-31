@@ -1,0 +1,24 @@
+{
+  "name": "fsd-cli-create",
+  "version": "1.0.8",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "fsd": "./dist/index.js"
+  },
+  "scripts": {
+    "start": "node ./dist/index.js"
+  },
+  "author": "Serafim Kremnev",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.11",
+    "@types/yargs": "^17.0.32"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "dedent-js": "^1.0.1"
+  }
+}
