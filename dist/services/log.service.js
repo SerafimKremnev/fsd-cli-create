@@ -24,8 +24,8 @@ class LogServicesClass {
         console.log(bgGreen(" УСПЕШНО! ") + ' ' + success);
     }
     printInfo() {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             const style = yield getKeyValue('style');
             const filename = yield getKeyValue('filename');
             const exportVariant = yield getKeyValue('export');

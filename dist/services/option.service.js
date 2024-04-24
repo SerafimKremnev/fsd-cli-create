@@ -12,8 +12,8 @@ import { saveKeyValue } from '../utils/fileUtils.js';
 import { LogServices } from './log.service.js';
 class OptionServiceClass {
     setStyle(style) {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             if (style === 'cc' || style == 'kc') {
                 try {
                     yield saveKeyValue('style', style);
@@ -30,8 +30,8 @@ class OptionServiceClass {
         });
     }
     setFileName(filename) {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             if (filename === 'component' || filename == 'index') {
                 try {
                     yield saveKeyValue('filename', filename);
@@ -48,8 +48,8 @@ class OptionServiceClass {
         });
     }
     setExport(exportVariant) {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             if (exportVariant === 'default' || exportVariant == 'const') {
                 try {
                     yield saveKeyValue('export', exportVariant);

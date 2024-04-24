@@ -5,7 +5,7 @@ export const capitalize = (name: string) => name.charAt(0).toLowerCase() + name.
 export const tsxTemplate = async (n: string, defaultExport: boolean, withCva: boolean) => {
   const name = await createName(n, 'cc')
   return `import React, { FC } from 'react';
-${withCva ? `import { cvaRoot } from './${n}${n.includes('-') ? '-s' : 'S'}tyles';` : "import { cva } from 'class-variance-authority';"}
+${withCva ? `import s from './${n}${n.includes('-') ? '-s' : 'S'}tyles';` : "import { cva } from 'class-variance-authority';"}
 
 interface ${name}Props {
   className?: string;
@@ -22,7 +22,7 @@ ${withCva ? '' :
 `}
 ${!defaultExport ? `export ` : ''}const ${name}: FC<${name}Props> = ({}) => {
   return (
-    <div className={cvaRoot()}></div>
+    <div className={s.cvaRoot()}></div>
   );
 };
 
@@ -46,9 +46,11 @@ const cvaRoot = cva([
   defaultVariants: {},
 });
 
-export {
+const styles = {
   cvaRoot,
 }
+
+export default styles;
 `;
 
 export const dataTemplate = (name: string) => `export const data${name} = {

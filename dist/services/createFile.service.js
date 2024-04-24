@@ -60,7 +60,7 @@ const createDirectory = (path) => __awaiter(void 0, void 0, void 0, function* ()
         process.exit(1);
     }
 });
-const componentDirectory = (f = 'f', name) => __awaiter(void 0, void 0, void 0, function* () {
+const componentDirectory = (...args_1) => __awaiter(void 0, [...args_1], void 0, function* (f = 'f', name) {
     const n = yield createName(name);
     const currentPath = process.cwd();
     const haveLayer = currentPath.includes('features') || currentPath.includes('widgets') || currentPath.includes('shared') || currentPath.includes('entities');
@@ -69,14 +69,14 @@ const componentDirectory = (f = 'f', name) => __awaiter(void 0, void 0, void 0, 
     }
     return `${process.cwd()}/src/${getFolder(f)}/${name ? n : ''}`;
 });
-const checkExist = (f = 'f', name) => __awaiter(void 0, void 0, void 0, function* () {
+const checkExist = (...args_2) => __awaiter(void 0, [...args_2], void 0, function* (f = 'f', name) {
     const dir = yield componentDirectory(f, name);
     if (fs.existsSync(dir)) {
         console.log(`Компонент ${name} уже существует в ${dir}`);
         process.exit(1);
     }
 });
-export const createModule = (n, f = 'f', additional) => __awaiter(void 0, void 0, void 0, function* () {
+export const createModule = (n_1, ...args_3) => __awaiter(void 0, [n_1, ...args_3], void 0, function* (n, f = 'f', additional) {
     var _b;
     try {
         const add = getAdditional(additional);

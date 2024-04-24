@@ -12,7 +12,7 @@ export const capitalize = (name) => name.charAt(0).toLowerCase() + name.slice(1,
 export const tsxTemplate = (n, defaultExport, withCva) => __awaiter(void 0, void 0, void 0, function* () {
     const name = yield createName(n, 'cc');
     return `import React, { FC } from 'react';
-${withCva ? `import { cvaRoot } from './${n}${n.includes('-') ? '-s' : 'S'}tyles';` : "import { cva } from 'class-variance-authority';"}
+${withCva ? `import s from './${n}${n.includes('-') ? '-s' : 'S'}tyles';` : "import { cva } from 'class-variance-authority';"}
 
 interface ${name}Props {
   className?: string;
@@ -29,7 +29,7 @@ ${withCva ? '' :
 `}
 ${!defaultExport ? `export ` : ''}const ${name}: FC<${name}Props> = ({}) => {
   return (
-    <div className={cvaRoot()}></div>
+    <div className={s.cvaRoot()}></div>
   );
 };
 
@@ -50,9 +50,11 @@ const cvaRoot = cva([
   defaultVariants: {},
 });
 
-export {
+const styles = {
   cvaRoot,
 }
+
+export default styles;
 `;
 export const dataTemplate = (name) => `export const data${name} = {
 
